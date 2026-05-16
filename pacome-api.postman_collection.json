@@ -1,0 +1,48 @@
+{
+  "info": {
+    "name": "API Pacôme SINWILLY",
+    "description": "Collection de tests pour l'API Node.js",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Test serveur",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5000"
+      }
+    },
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:5000/api/auth/register",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Pacôme SINWILLY\", \"email\": \"pacome@test.com\", \"password\": \"secret123\"}"
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:5000/api/auth/login",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\": \"pacome@test.com\", \"password\": \"secret123\"}"
+        }
+      }
+    },
+    {
+      "name": "Mon profil (JWT requis)",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5000/api/users/me",
+        "header": [{ "key": "Authorization", "value": "Bearer TON_TOKEN_ICI" }]
+      }
+    }
+  ]
+}
